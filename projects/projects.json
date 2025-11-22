@@ -1,0 +1,21 @@
+[
+ 
+  {
+    "name": "Bone Fracture Detection Using Deep Learning Models",
+    "desc": "This study presents a deep learning-based approach for detecting and classifying bone fractures in X-ray images. Using a Convolutional Neural Network (CNN)",
+    "image": "fracture.JPG",
+    "category": "publish",
+    "links": {
+      "view": "https://ideapublishers.org/index.php/ajset/article/view/4.1.4/a"
+    }
+  },
+  {
+    "name": "",
+    "desc": "",
+    "image": "",
+    "category": "basicweb",
+    "links": {
+      "view": "#",
+    }
+  }
+]
