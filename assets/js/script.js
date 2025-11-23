@@ -119,7 +119,7 @@ function showProjects(projects) {
           <p>${project.desc}</p>
           <div class="btns">
             <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+            
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@ function showProjects(projects) {
     // <!-- tilt js effect starts -->
     //VanillaTilt.init(document.querySelectorAll(".tilt"), {
       //  max: 15,
-    //});
+   // });
     // <!-- tilt js effect ends -->
 
     /* ===== SCROLL REVEAL ANIMATION ===== */
@@ -156,7 +156,7 @@ fetchData("projects").then(data => {
 
 // <!-- tilt js effect starts -->
 //VanillaTilt.init(document.querySelectorAll(".tilt"), {
-//    max: 15,
+  //  max: 15,
 //});
 // <!-- tilt js effect ends -->
 
