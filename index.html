@@ -1,174 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content=", full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-    <meta name="description" content="Welcome's Portfolio. Full-Stack Web Developer and Android App Developer" />
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
-    <title>Numan</title>
-    <style>
-        /* FIX FOR HOBBY CONTAINERS */
-        #skillsContainer {
-            display: flex;
-            flex-wrap: wrap; /* Allows stacking on mobile */
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            width: 100%;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Numan – Hobbies Fix</title>
 
-        .skills .bar {
-            flex: 1 1 250px; /* Base width of 250px, but grows to fill space */
-            max-width: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 2rem;
-            transition: 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-        .skills .bar:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-        }
+<style>
 
-        .skills .bar img {
-            height: 50px;
-            margin-bottom: 1rem;
-        }
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0033;
+  color: white;
+}
 
-        .skills .bar span {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #fff;
-            display: block;
-            margin-bottom: 1rem;
-        }
+.heading {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
 
-        .skills .bar p {
-            font-size: 1.4rem !important; /* Slightly smaller for better fit */
-            line-height: 1.5;
-            color: #ccc;
-        }
+/* ===== HOBBIES SECTION ===== */
+.skills {
+  padding: 4rem 2rem;
+}
 
-        /* Sitemap Tree Structure */
-        .sitemap .tree-container {
-            background: rgba(255, 255, 255, 0.1); 
-            padding: 3rem;
-            border-radius: 1rem;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .sitemap ul { list-style: none; text-align: left; }
-        .sitemap ul li { margin: 1.5rem 0; font-size: 1.8rem; position: relative; }
-        .sitemap ul li a { color: #fff; font-weight: bold; transition: 0.2s; }
-        .sitemap ul ul { margin-left: 3rem; border-left: 2px solid #666; padding-left: 2rem; }
-        .sitemap ul ul li::before {
-            content: ''; position: absolute; left: -2rem; top: 1.5rem; width: 2rem; height: 2px; background: #666;
-        }
-    </style>
+.skills .container {
+  max-width: 1250px;   /* PARENT MADE WIDER */
+  margin: auto;
+}
+
+.skills .row {
+  display: flex;
+  flex-wrap: wrap;     /* FIX OVERFLOW */
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* ===== CHILD CARDS ===== */
+.skills .bar {
+  background: linear-gradient(145deg, #1a0055, #2a0077);
+  border-radius: 15px;
+  padding: 2rem;
+  flex: 1 1 calc(25% - 2rem); /* SMALLER CHILD */
+  max-width: calc(25% - 2rem);
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.skills .bar:hover {
+  transform: translateY(-8px);
+}
+
+.skills .info img {
+  width: 48px;
+}
+
+.skills .info span {
+  display: block;
+  font-size: 2rem;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.skills .info p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .skills .bar {
+    flex: 1 1 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .skills .bar {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+</style>
 </head>
+
 <body>
 
-<header>
-  <a href="https://numan852.github.io/Numan-portfolio/" class="logo"><i class="fas fa-home"></i> Home </a>
-  <div id="menu" class="fas fa-bars"></div>
-  <nav class="navbar">
-      <ul>
-      <li><a class="active" href="#home">home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Hobbies</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#work">Publication</a></li>
-      <li><a href="#sitemap">Sitemap</a></li> 
-      <li><a href="#contact">Contact</a></li>
-      </ul>
-  </nav>
-</header>
-
-<section class="home" id="home">
-    <div id="particles-js"></div>
-    <div class="content">
-    <h2>Hi There,<br/> I'm<span> Numan</span> <span>Ahmad</span></h2>
-    <p>i am <span class="typing-text"></span></p>
-    <a href="#about" class="btn"><span>About Me</span><i class="fas fa-arrow-circle-down"></i></a>
-    <div class="socials">
-        <ul class="social-icons">
-          <li><a class="instagram" href="https://www.instagram.com/itx_numan_a/" target="_blank"><i class="fab fa-instagram"></i></a></li> 
-          <li><a class="facebook" href="https://www.facebook.com/share/1SFYKhnjHF/" target="_blank"><i class="fab fa-facebook"></i></a></li>
-          <li><a class="tiktok" href="https://www.tiktok.com/@numan_ahmd" target="_blank"><i class="fab fa-tiktok"></i></a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="">
-    </div>
-</section>
-
-<section class="about" id="about">
-    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
-    <div class="row">
-        <div class="image">
-            <img draggable="false" class="tilt" src="./assets/images/imgg.avif" alt="">
-        </div>
-        <div class="content">
-            <h3>I'm Numan</h3>
-            <span class="tag">Student of Computer Engineering</span>
-            <p>A passionate Computer Engineering student with a deep curiosity for technology and innovation.</p>
-            <div class="box-container">
-                <div class="box">
-                  <p><span> email : </span> noumanahmad852@gmail.com</p>
-                </div>
-            </div>
-            <div class="resumebtn">
-                <a href="#" class="btn"><span>Resume</span><i class="fas fa-chevron-right"></i></a>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="skills" id="skills">
-    <h2 class="heading"><i class="fas fa-heart"></i> Hobbies</h2>
-    <div class="container">
-        <div id="skillsContainer">
-            <div class="bar">
-                <img src="https://img.icons8.com/color/48/000000/design.png"/>
-                <span>Graphic Designing</span>
-                <p>I enjoy turning creative ideas into visual designs using tools like Photoshop and Canva.</p>
-            </div>
-            <div class="bar">
-                <img src="https://img.icons8.com/color/48/000000/camera--v1.png"/>
-                <span>Photography</span>
-                <p>Photography allows me to capture meaningful moments and explore creative angles.</p>
-            </div>
-            <div class="bar">
-                <img src="https://img.icons8.com/color/48/000000/video-editing.png"/>
-                <span>Video Editing</span>
-                <p>I enjoy piecing together clips to create stories using tools like Premiere Pro and CapCut.</p>
-            </div>
-            <div class="bar">
-                <img src="https://img.icons8.com/color/48/000000/controller.png"/>
-                <span>Gaming</span>
-                <p>Gaming helps me relax and improve strategic thinking and problem-solving skills.</p>
-            </div>
-        </div>
-    </div>
-</section>
+  <h2 class="heading"><i class="fas fa-heart"></i> Hobbies</h2>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"></script>
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
-<script src="./assets/js/script.js"></script>
+  <div class="container">
+    <div class="row">
+
+      <div class="bar">
+        <div class="info">
+          <img src="https://img.icons8.com/color/48/design.png"/>
+          <span>Graphic Designing</span>
+          <p>
+            I enjoy turning creative ideas into visual designs using tools like Photoshop and Canva.
+            This hobby strengthens my understanding of color theory and layout.
+          </p>
+        </div>
+      </div>
+
+      <div class="bar">
+        <div class="info">
+          <img src="https://img.icons8.com/color/48/camera--v1.png"/>
+          <span>Photography</span>
+          <p>
+            Photography allows me to capture meaningful moments and explore creative angles,
+            focusing on nature and portraits.
+          </p>
+        </div>
+      </div>
+
+      <div class="bar">
+        <div class="info">
+          <img src="https://img.icons8.com/color/48/video-editing.png"/>
+          <span>Video Editing</span>
+          <p>
+            I enjoy piecing together clips to create stories using Premiere Pro and CapCut,
+            working with transitions and sound.
+          </p>
+        </div>
+      </div>
+
+      <div class="bar">
+        <div class="info">
+          <img src="https://img.icons8.com/color/48/controller.png"/>
+          <span>Gaming</span>
+          <p>
+            Gaming helps me relax and improve strategic thinking,
+            sharpening my problem-solving and teamwork skills.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
