@@ -41,24 +41,25 @@ $(document).ready(function () {
     $("#contact-form").submit(function (event) {
         event.preventDefault();
 
-        // Change button text while sending
         const submitBtn = $(this).find('button[type="submit"]');
-        submitBtn.html('Sending... <i class="fa fa-spinner fa-spin"></i>');
+        const originalBtnText = submitBtn.html();
+        
+        // Show loading indicator
+        submitBtn.html('Sending... <i class="fa fa-spinner fa-spin"></i>').prop('disabled', true);
 
-        // Using your updated Service ID and Template ID
-        emailjs.sendForm('service_1pz8vgd', 'template_sgy8fqr', '#contact-form')
+        // Send via EmailJS using your exact Service & Template IDs
+        emailjs.sendForm('service_1pz8vgd', 'template_sgy8fqr', this)
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById("contact-form").reset();
                 alert("Thank you! Your message has been sent successfully.");
-                submitBtn.html('Submit <i class="fa fa-paper-plane"></i>');
+                submitBtn.html(originalBtnText).prop('disabled', false);
             }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Please try again or check console.");
-                submitBtn.html('Submit <i class="fa fa-paper-plane"></i>');
+                console.error('FAILED...', error);
+                alert("Form Submission Failed! Reason: " + (error.text || JSON.stringify(error)));
+                submitBtn.html(originalBtnText).prop('disabled', false);
             });
     });
-    // <!-- emailjs to mail contact form data -->
 
 });
 
@@ -125,7 +126,6 @@ function showProjects(projects) {
           <p>${project.desc}</p>
           <div class="btns">
             <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            
           </div>
         </div>
       </div>
