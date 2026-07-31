@@ -39,18 +39,24 @@ $(document).ready(function () {
 
     // <!-- emailjs to mail contact form data -->
     $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
+        event.preventDefault();
 
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
+        // Change button text while sending
+        const submitBtn = $(this).find('button[type="submit"]');
+        submitBtn.html('Sending... <i class="fa fa-spinner fa-spin"></i>');
+
+        // Using your updated Service ID and Template ID
+        emailjs.sendForm('service_1pz8vgd', 'template_sgy8fqr', '#contact-form')
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
+                alert("Thank you! Your message has been sent successfully.");
+                submitBtn.html('Submit <i class="fa fa-paper-plane"></i>');
             }, function (error) {
                 console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
+                alert("Form Submission Failed! Please try again or check console.");
+                submitBtn.html('Submit <i class="fa fa-paper-plane"></i>');
             });
-        event.preventDefault();
     });
     // <!-- emailjs to mail contact form data -->
 
@@ -127,12 +133,6 @@ function showProjects(projects) {
     });
     projectsContainer.innerHTML = projectHTML;
 
-    // <!-- tilt js effect starts -->
-    //VanillaTilt.init(document.querySelectorAll(".tilt"), {
-      //  max: 15,
-   // });
-    // <!-- tilt js effect ends -->
-
     /* ===== SCROLL REVEAL ANIMATION ===== */
     const srtop = ScrollReveal({
         origin: 'top',
@@ -153,23 +153,6 @@ fetchData().then(data => {
 fetchData("projects").then(data => {
     showProjects(data);
 });
-
-// <!-- tilt js effect starts -->
-//VanillaTilt.init(document.querySelectorAll(".tilt"), {
-  //  max: 15,
-//});
-// <!-- tilt js effect ends -->
-
-
-// pre loader start
-// function loader() {
-//     document.querySelector('.loader-container').classList.add('fade-out');
-// }
-// function fadeOut() {
-//     setInterval(loader, 500);
-// }
-// window.onload = fadeOut;
-// pre loader end
 
 // disable developer mode
 document.onkeydown = function (e) {
@@ -195,7 +178,7 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 (function () {
     var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
     s1.async = true;
-s1.src='https://embed.tawk.to/693f101da98748197f471ea4/1jcf5dte0';
+    s1.src='https://embed.tawk.to/693f101da98748197f471ea4/1jcf5dte0';
     s1.charset = 'UTF-8';
     s1.setAttribute('crossorigin', '*');
     s0.parentNode.insertBefore(s1, s0);
@@ -231,7 +214,6 @@ srtop.reveal('.about .content p', { delay: 200 });
 srtop.reveal('.about .content .box-container', { delay: 200 });
 srtop.reveal('.about .content .resumebtn', { delay: 200 });
 
-
 /* SCROLL SKILLS */
 srtop.reveal('.skills .container', { interval: 200 });
 srtop.reveal('.skills .container .bar', { delay: 400 });
@@ -245,7 +227,3 @@ srtop.reveal('.work .box', { interval: 200 });
 /* SCROLL EXPERIENCE */
 srtop.reveal('.experience .timeline', { delay: 400 });
 srtop.reveal('.experience .timeline .container', { interval: 400 });
-
-/* SCROLL CONTACT */
-srtop.reveal('.contact .container', { delay: 400 });
-srtop.reveal('.contact .container .form-group', { delay: 400 });
