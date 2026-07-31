@@ -48,7 +48,7 @@ $(document).ready(function () {
         submitBtn.html('Sending... <i class="fa fa-spinner fa-spin"></i>').prop('disabled', true);
 
         // Send via EmailJS using your exact Service & Template IDs
-        emailjs.sendForm('service_1pz8vgd', 'template_sgy8fqr', this)
+         emailjs.sendForm('service_1pz8vgd', 'template_j6t2uii', this)
             .then(function (response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById("contact-form").reset();
